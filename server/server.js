@@ -22,6 +22,7 @@
 
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
@@ -36,6 +37,8 @@ const server = new ApolloServer({
 })
 
 const app = express()
+
+app.use(cors());
 
 const startApolloServer = async () => {
   await server.start();
